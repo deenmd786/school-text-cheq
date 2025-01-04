@@ -5,8 +5,8 @@ import Logo from '../ui/Logo';
 const LoginForm: React.FC = () => {
   return (
     <div className="flex items-center px-4 justify-center min-h-screen bg-gray-100">
-      <div className="bg-green-700 rounded-tl-3xl rounded-tr-3xl rounded-bl-3xl rounded-br-3xl p-8 w-80 relative">
-        <div className="absolute -top-12 left-1/2 transform -translate-x-1/2">
+      <div className="bg-green-700 bg-opacity-70 rounded-tl-3xl rounded-tr-3xl rounded-bl-3xl rounded-br-3xl p-8 w-80 relative">
+        <div className="absolute  rounded-full w-28 h-28 overflow-hidden -top-12 left-1/2 transform -translate-x-1/2">
         <Logo/>
         </div>
         <div className="mt-16">
