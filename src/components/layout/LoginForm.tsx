@@ -1,11 +1,12 @@
 // LoginForm.tsx
 import React from 'react';
 import Logo from '../ui/Logo';
+import Link from 'next/link';
 
 const LoginForm: React.FC = () => {
   return (
     <div className="flex items-center px-4 justify-center min-h-screen bg-gray-100">
-      <div className="bg-green-700 bg-opacity-70 rounded-tl-3xl rounded-tr-3xl rounded-bl-3xl rounded-br-3xl p-8 w-80 relative">
+      <div className="bg-[var(--first)] bg-opacity-70 rounded-tl-3xl rounded-tr-3xl rounded-bl-3xl rounded-br-3xl p-8 w-80 relative">
         <div className="absolute  rounded-full w-28 h-28 overflow-hidden -top-12 left-1/2 transform -translate-x-1/2">
         <Logo/>
         </div>
@@ -42,9 +43,12 @@ const LoginForm: React.FC = () => {
             </a>
           </div>
           <div className="flex items-center justify-center">
-            <button className="bg-white text-green-700 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+            <button className="bg-[var(--bg)] text-[var(--first)] font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
               Login
             </button>
+            <Link href={'/dashboard/students'} className="bg-[var(--second)] text-[var(--first)] font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+              Skip
+            </Link>
           </div>
         </div>
       </div>
