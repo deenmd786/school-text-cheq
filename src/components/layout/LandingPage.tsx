@@ -13,12 +13,12 @@ const LandingPage: React.FC = () => {
         <Logo />
       </div>
       <div className="flex text-center flex-col space-y-4">
-        <Link href={'/auth'} className="w-64 py-3 text-lg font-semibold text-white bg-green-700 rounded-full">
+        <Link href={'/auth'} className="w-64 py-3 text-lg font-semibold text-[var(--bg)] bg-[var(--first)] rounded-full">
           Login
         </Link>
         <Link
           href={'/auth/signup'}
-          className={`w-64 py-3 text-lg font-semibold text-white bg-green-700 rounded-full ${!isAgreed ? 'opacity-50 cursor-not-allowed' : ''}`}
+          className={`w-64 py-3 text-lg font-semibold text-[var(--bg)] bg-[var(--first)] rounded-full ${!isAgreed ? 'opacity-50 cursor-not-allowed' : ''}`}
           onClick={(e) => {
             if (!isAgreed) {
               e.preventDefault(); // Prevent navigation if not agreed
@@ -36,7 +36,7 @@ const LandingPage: React.FC = () => {
           onChange={() => setIsAgreed(!isAgreed)} // Toggle checkbox state
           className="mr-2"
         />
-        <label htmlFor="terms" className="text-xs text-green-700">
+        <label htmlFor="terms" className="text-xs text-[var(--first)]">
           I agree to the Terms of Use and Privacy Policy
         </label>
       </div>

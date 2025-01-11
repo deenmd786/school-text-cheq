@@ -23,10 +23,10 @@ const ParentLogin: React.FC = () => {
   };
 
   return (
-    <div className="bg-white flex items-center justify-center min-h-screen">
+    <div className="bg-[var(--bg)] flex items-center justify-center min-h-screen">
       <div className="text-center">
-        <h1 className="text-green-700 text-5xl font-bold">Parent&apos;s</h1>
-        <p className="text-green-700 text-2xl mt-2">Login</p>
+        <h1 className="text-[var(--first)] text-5xl font-bold">Parent&apos;s</h1>
+        <p className="text-[var(--first)] text-2xl mt-2">Login</p>
         <div className="mt-10">
           <Logo />
         </div>
@@ -35,14 +35,14 @@ const ParentLogin: React.FC = () => {
             name="phoneNumber"
             value={formData.phoneNumber}
             onChange={handleInputChange}
-            className="md:w-80 h-12 bg-emerald-50 text-green-700 text-center rounded-full"
+            className="md:w-80 h-12 bg-emerald-50 text-[var(--first)] text-center rounded-full"
             placeholder="Phone no."
             type="text"
           />
         </div>
         <div className="mt-6">
           <button
-            className="w-full h-12 bg-green-700 text-white text-center rounded-full"
+            className="w-full h-12 bg-[var(--first)] text-[var(--bg)] text-center rounded-full"
             onClick={handleLogin} // Call handleLogin on button click
           >
             Login

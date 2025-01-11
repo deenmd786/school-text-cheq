@@ -49,10 +49,10 @@ const TeacherSignUp: React.FC = () => {
   };
 
   return (
-    <form className="bg-white flex flex-col items-center p-4" onSubmit={handleSubmit}>
+    <form className="bg-[var(--bg)] flex flex-col items-center p-4" onSubmit={handleSubmit}>
       <div className="text-center mt-4">
-        <h1 className="text-green-700 text-5xl font-bold">Teacher&apos;s</h1>
-        <h2 className="text-green-700 text-3xl">Sign up</h2>
+        <h1 className="text-[var(--first)] text-5xl font-bold">Teacher&apos;s</h1>
+        <h2 className="text-[var(--first)] text-3xl">Sign up</h2>
       </div>
       <div className="flex items-center mb-4 mt-8 space-x-4">
         <label className="bg-green-100 rounded-full p-2 cursor-pointer">
@@ -85,7 +85,7 @@ const TeacherSignUp: React.FC = () => {
             name="teacherName"
             value={formData.teacherName}
             onChange={handleInputChange}
-            className="bg-green-100 text-center rounded-full py-2 text-green-700 w-full"
+            className="bg-green-100 text-center rounded-full py-2 text-[var(--first)] w-full"
             placeholder="Teacher’s Name"
             type="text"
           />
@@ -93,7 +93,7 @@ const TeacherSignUp: React.FC = () => {
             name="subjects"
             value={formData.subjects}
             onChange={handleInputChange}
-            className="bg-green-100 text-center rounded-full py-2 text-green-700 w-full"
+            className="bg-green-100 text-center rounded-full py-2 text-[var(--first)] w-full"
             placeholder="Subjects"
             type="text"
           />
@@ -101,7 +101,7 @@ const TeacherSignUp: React.FC = () => {
             name="schoolName"
             value={formData.schoolName}
             onChange={handleInputChange}
-            className="bg-green-100 text-center rounded-full py-2 text-green-700 w-full"
+            className="bg-green-100 text-center rounded-full py-2 text-[var(--first)] w-full"
             placeholder="School Name"
             type="text"
           />
@@ -109,7 +109,7 @@ const TeacherSignUp: React.FC = () => {
             name="schoolCode"
             value={formData.schoolCode}
             onChange={handleInputChange}
-            className="bg-green-100 text-center rounded-full py-2 text-green-700 w-full"
+            className="bg-green-100 text-center rounded-full py-2 text-[var(--first)] w-full"
             placeholder="School Code"
             type="text"
           />
@@ -120,7 +120,7 @@ const TeacherSignUp: React.FC = () => {
           name="email"
           value={formData.email}
           onChange={handleInputChange}
-          className="bg-green-100 rounded-full text-center py-2 text-green-700 w-full"
+          className="bg-green-100 rounded-full text-center py-2 text-[var(--first)] w-full"
           placeholder=" Email I’d"
           type="text"
         />
@@ -128,12 +128,12 @@ const TeacherSignUp: React.FC = () => {
           name="phone"
           value={formData.phone}
           onChange={handleInputChange}
-          className="bg-green-100 rounded-full text-center py-2 text-green-700 w-full"
+          className="bg-green-100 rounded-full text-center py-2 text-[var(--first)] w-full"
           placeholder="Phone no"
           type="text"
         />
       </div>
-      <button type="submit" className="mt-8 bg-green-700 text-white w-full py-2 rounded-full">
+      <button type="submit" className="mt-8 bg-[var(--first)] text-[var(--bg)] w-full py-2 rounded-full">
         Sign Up
       </button>
     </form>

@@ -3,7 +3,9 @@ import UploadVideo from "@/components/ui/UploadVideo";
 
 interface PageProps {
   params: {
-    question?: string; // Match the dynamic route parameter type (always a string)
+    question?: string;
+    subject?: string;
+    chapter?: string;
   };
 }
 

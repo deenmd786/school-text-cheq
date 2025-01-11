@@ -2,7 +2,11 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   images: {
-    domains: ['storage.googleapis.com'], // Add the domain here
+    remotePatterns: [{ 
+      protocol: 'https', 
+      hostname: 'storage.googleapis.com', 
+      port: '' 
+    }],
   },
   /* other config options here */
 };

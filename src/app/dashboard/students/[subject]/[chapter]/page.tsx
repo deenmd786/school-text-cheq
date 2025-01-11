@@ -3,8 +3,8 @@ import React from 'react';
 
 interface Props {
     params: {
-        subject?: string; // Make this optional
-        chapter?: string; // Make this optional
+        subject: string; 
+        chapter: string; 
     };
 }
 
