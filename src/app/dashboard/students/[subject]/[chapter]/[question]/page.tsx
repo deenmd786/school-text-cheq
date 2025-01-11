@@ -1,22 +1,19 @@
+"use client"
 import React from "react";
 import UploadVideo from "@/components/ui/UploadVideo";
+import { useParams } from "next/navigation"; // Import useParams
 
-interface PageProps {
-  params: {
-    question?: string;
-    subject?: string;
-    chapter?: string;
-  };
-}
+const QuestionPage: React.FC = () => {
+  // Access the params directly from the URL
+  const { question } = useParams<{ question: string }>();
 
-const QuestionPage: React.FC<PageProps> = ({ params }) => {
   // Parse the question number as an integer
-  const question = params.question ? parseInt(params.question, 10) : undefined;
+  const questionNumber = question ? parseInt(question, 10) : undefined;
 
   return (
     <div>
-      {question !== undefined ? (
-        <UploadVideo questionNumber={question} />
+      {questionNumber !== undefined ? (
+        <UploadVideo questionNumber={questionNumber} />
       ) : (
         <p>No question number provided.</p>
       )}

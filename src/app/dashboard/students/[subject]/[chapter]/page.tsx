@@ -1,27 +1,22 @@
+"use client"
+
 import Questions from '@/components/ui/Questions';
 import React from 'react';
+import { NextPage } from 'next'; // Import NextPage from Next.js
+import { useParams } from 'next/navigation'; // Import useParams
 
-interface Props {
-    params: {
-        subject: string; 
-        chapter: string; 
-    };
-}
+const ChapterPage: NextPage = () => {
+    // Access the params directly from the URL
+    const { subject, chapter } = useParams<{ subject: string; chapter: string }>();
 
-const ChapterPage: React.FC<Props> = ({ params }) => {
-    // Log the params to debug
-    console.log("Params: ", params);
+    // Replace hyphens with spaces in the chapter and subject strings
+    const formattedChapter = chapter ? chapter.replace(/-/g, ' ') : '';
+    const formattedSubject = subject ? subject.replace(/-/g, ' ') : '';
 
-    // Check if params.chapter and params.subject are defined before using them
-    const chapter = params.chapter ? params.chapter.replace(/-/g, ' ') : ''; 
-    const subject = params.subject ? params.subject.replace(/-/g, ' ') : '';
-    
-    console.log("Subject: ", subject);
-    console.log("Chapter: ", chapter);
 
     return (
         <div className="bg-[var(--bg)] flex flex-col items-center justify-center min-h-screen p-4">
-            <Questions chapter={chapter} subject={subject} />
+            <Questions chapter={formattedChapter} subject={formattedSubject} />
         </div>
     );
 };

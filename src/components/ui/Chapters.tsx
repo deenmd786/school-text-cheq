@@ -7,7 +7,7 @@ interface ChaptersOfSubProps {
   subject: Subject; // Use the Subject type here
 }
 
-const ChaptersOfSub: React.FC<ChaptersOfSubProps> = ({ subject }) => {
+const Chapters: React.FC<ChaptersOfSubProps> = ({ subject }) => {
   const [activeLink, setActiveLink] = useState<number | null>(null);
   const chapters = subjectsWithChapters[subject] || [];
 
@@ -56,4 +56,4 @@ const ChaptersOfSub: React.FC<ChaptersOfSubProps> = ({ subject }) => {
   );
 };
 
-export default ChaptersOfSub;
+export default Chapters;

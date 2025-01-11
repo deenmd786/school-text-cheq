@@ -1,22 +1,20 @@
-// src/app/dashboard/students/[subject]/page.tsx
+"use client"
 
-import ChaptersOfSub from '@/components/ui/Chapters';
+import Chapters from '@/components/ui/Chapters';
 import { Subject } from '@/data/Subjects';
+import { useParams } from 'next/navigation'; // Import useParams
 import React from 'react';
 
-interface Props {
-    params: {
-        subject: string;
-    };
-}
+const SubjectPage: React.FC = () => {
+    // Access the subject directly from URL params
+    const { subject } = useParams<{ subject: string }>(); // Destructure subject from useParams
 
-const SubjectPage: React.FC<Props> = ({ params }) => {
-    const subject = (params.subject as string).replace(/-/g, ' ') as Subject;
-    
+    // Replace hyphens with spaces in the subject string
+    const formattedSubject = subject.replace(/-/g, ' ') as Subject;
 
     return (
         <div className="bg-[var(--bg)] flex flex-col items-center justify-center min-h-screen p-4">
-            <ChaptersOfSub subject={subject} />
+            <Chapters subject={formattedSubject} />
         </div>
     );
 };
