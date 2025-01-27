@@ -47,7 +47,10 @@ const LoginForm: React.FC = () => {
               Login
             </button>
             <Link href={'/dashboard/students'} className="bg-[var(--second)] text-[var(--first)] font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
-              Skip
+              student
+            </Link>
+            <Link href={'/dashboard/teachers'} className="bg-[var(--second)] text-[var(--first)] font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+              teacher
             </Link>
           </div>
         </div>

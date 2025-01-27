@@ -4,10 +4,11 @@ import Link from "next/link";
 import React, { useState } from "react";
 
 interface ChaptersOfSubProps {
-  subject: Subject; // Use the Subject type here
+  roll: string;
+  subject: Subject;
 }
 
-const Chapters: React.FC<ChaptersOfSubProps> = ({ subject }) => {
+const Chapters: React.FC<ChaptersOfSubProps> = ({ roll ,subject }) => {
   const [activeLink, setActiveLink] = useState<number | null>(null);
   const chapters = subjectsWithChapters[subject] || [];
 
@@ -19,7 +20,7 @@ const Chapters: React.FC<ChaptersOfSubProps> = ({ subject }) => {
   };
 
   return (
-    <div className="bg-[var(--bg)] relative flex flex-col items-center justify-center min-h-screen p-2">
+    <div className="bg-[var(--bg)] relative flex flex-col items-center min-h-screen py-6 ">
       <div className="text-center">
         <h1 className="text-[var(--first)] text-3xl font-bold mb-1">
           {subject}
@@ -32,7 +33,7 @@ const Chapters: React.FC<ChaptersOfSubProps> = ({ subject }) => {
             <div className={`flex items-center w-full`}>
               <div className={getClass(index)}>{index + 1}.</div>
               <Link
-                href={`/dashboard/students/${subject}/${chapter.replace(
+                href={`/dashboard/${roll}/${subject}/${index+1}${chapter.replace(
                   / /g,
                   "-"
                 )}`}
@@ -49,8 +50,8 @@ const Chapters: React.FC<ChaptersOfSubProps> = ({ subject }) => {
           </div>
         ))}
       </div>
-      <h2 className="text-[var(--first)] absolute bottom-0 text-end right-0 text-xl font-bold">
-        Your <br /> Chapters
+      <h2 className="text-[var(--first)] absolute bottom-4 leading-5 text-end right-1 text-3xl font-bold">
+        <span className="text-base">Your</span> <br /> Chapters
       </h2>
     </div>
   );

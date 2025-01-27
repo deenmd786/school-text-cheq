@@ -7,14 +7,15 @@ import React from 'react';
 
 const SubjectPage: React.FC = () => {
     // Access the subject directly from URL params
-    const { subject } = useParams<{ subject: string }>(); // Destructure subject from useParams
+    const { roll } = useParams<{ roll: string }>();
+    const { subject } = useParams<{ subject: string }>();
 
     // Replace hyphens with spaces in the subject string
     const formattedSubject = subject.replace(/-/g, ' ') as Subject;
 
     return (
-        <div className="bg-[var(--bg)] flex flex-col items-center justify-center min-h-screen p-4">
-            <Chapters subject={formattedSubject} />
+        <div className="bg-[var(--bg)] flex flex-col justify-center min-h-screen px-4">
+            <Chapters roll={roll} subject={formattedSubject} />
         </div>
     );
 };
