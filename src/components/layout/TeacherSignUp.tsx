@@ -2,6 +2,10 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { convertImageToBase64 } from "@/utils/convertImageToBase64"; // Adjust the import path as necessary
+import { toast, ToastContainer } from "react-toastify"; // Import toast
+import "react-toastify/dist/ReactToastify.css"; // Import toast styles
+import { FaUserCircle } from "react-icons/fa"; // Import user icon
+import { signupTeacher } from "@/utils/authController";
 
 const TeacherSignUp: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -10,6 +14,7 @@ const TeacherSignUp: React.FC = () => {
     schoolName: "",
     schoolCode: "",
     email: "",
+    password: "",
     phone: "",
     profilePic: "",
   });
@@ -37,19 +42,26 @@ const TeacherSignUp: React.FC = () => {
     e.preventDefault();
     console.log("Form Data: ", formData);
     // Here you can handle the form submission, e.g., send data to the server
-    setFormData({
-      teacherName: "",
-      subjects: "",
-      schoolName: "",
-      schoolCode: "",
-      email: "",
-      phone: "",
-      profilePic: "",
-    });
+    try {
+      const response = await signupTeacher(formData); // Replace with your actual signup function
+      toast.success(response.message); // Show success toast
+      setFormData({
+        teacherName: "",
+        subjects: "",
+        schoolName: "",
+        schoolCode: "",
+        email: "",
+        password: "",
+        phone: "",
+        profilePic: "",
+      });
+    } catch (err) {
+      toast.error((err as Error).message || "Signup failed"); // Show error toast
+    }
   };
 
   return (
-    <form className="bg-[var(--bg)] flex flex-col items-center p-4" onSubmit={handleSubmit}>
+    <form className="bg-[var(--bg)] flex flex-col items-center p-4 min-h-screen" onSubmit={handleSubmit}>
       <div className="text-center mt-4">
         <h1 className="text-[var(--first)] text-5xl font-bold">Teacher&apos;s</h1>
         <h2 className="text-[var(--first)] text-3xl">Sign up</h2>
@@ -65,13 +77,9 @@ const TeacherSignUp: React.FC = () => {
               width={100}
             />
           ) : (
-            <Image
-              alt="Placeholder image of a person"
-              className="rounded-full"
-              height={100}
-              src="https://storage.googleapis.com/a1aa/image/fT7K5SaWGH36calzkqnHw1eh8tgKqwbtFsp73voQHBAs8pBUA.jpg"
-              width={100}
-            />
+            <div className="text-[var(--second)]">
+              <FaUserCircle size={70} />
+            </div>
           )}
           <input
             type="file"
@@ -88,6 +96,7 @@ const TeacherSignUp: React.FC = () => {
             className="bg-green-100 text-center rounded-full py-2 text-[var(--first)] w-full"
             placeholder="Teacher’s Name"
             type="text"
+            required
           />
           <input
             name="subjects"
@@ -96,6 +105,7 @@ const TeacherSignUp: React.FC = () => {
             className="bg-green-100 text-center rounded-full py-2 text-[var(--first)] w-full"
             placeholder="Subjects"
             type="text"
+            required
           />
           <input
             name="schoolName"
@@ -104,6 +114,7 @@ const TeacherSignUp: React.FC = () => {
             className="bg-green-100 text-center rounded-full py-2 text-[var(--first)] w-full"
             placeholder="School Name"
             type="text"
+            required
           />
           <input
             name="schoolCode"
@@ -111,7 +122,8 @@ const TeacherSignUp: React.FC = () => {
             onChange={handleInputChange}
             className="bg-green-100 text-center rounded-full py-2 text-[var(--first)] w-full"
             placeholder="School Code"
-            type="text"
+            type="number"
+            required
           />
         </div>
       </div>
@@ -121,21 +133,33 @@ const TeacherSignUp: React.FC = () => {
           value={formData.email}
           onChange={handleInputChange}
           className="bg-green-100 rounded-full text-center py-2 text-[var(--first)] w-full"
-          placeholder=" Email I’d"
-          type="text"
+          placeholder="Email ID"
+          type="email"
+          required
+        />
+        <input
+          name="password"
+          value={formData.password}
+          onChange={handleInputChange}
+          className="bg-green-100 rounded-full text-center py-2 text-[var(--first)] w-full"
+          placeholder="Password"
+          type="password"
+          required
         />
         <input
           name="phone"
           value={formData.phone}
           onChange={handleInputChange}
           className="bg-green-100 rounded-full text-center py-2 text-[var(--first)] w-full"
-          placeholder="Phone no"
-          type="text"
+          placeholder="Phone No"
+          type="number"
+          required
         />
       </div>
       <button type="submit" className="mt-8 bg-[var(--first)] text-[var(--bg)] w-full py-2 rounded-full">
         Sign Up
       </button>
+      <ToastContainer /> {/* Toast container for notifications */}
     </form>
   );
 };

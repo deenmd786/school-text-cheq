@@ -58,7 +58,7 @@ export async function GET(req: NextRequest) {
     if (chapter) filter.chapter = chapter;
     if (questionNo) filter.questionNo = Number(questionNo);
 
-    const videos = await StudentVideo.find(filter).populate("studentId", "name", "email");
+    const videos = await StudentVideo.find(filter).populate("studentId", "name email");
 
     return NextResponse.json({ videos }, { status: 200 });
   } catch (error) {

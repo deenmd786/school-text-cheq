@@ -98,7 +98,7 @@ const VideoUpload: React.FC<QuestionCardProps> = ({
           handleUploadVideo();
       }
       return
-  },[formData.videoUrl])
+  },[formData,notSubmited])
 
 
   useEffect(() => {

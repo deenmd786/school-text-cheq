@@ -2,7 +2,7 @@
 import React from "react";
 import { useParams } from "next/navigation"; // Import useParams
 import VideoUpload from "@/components/ui/VideoUpload";
-import QuestionPage from "@/components/layout/QuestionPage";
+import Shorts from "@/components/layout/Shorts";
 
 const Page: React.FC = () => {
   const { roll } = useParams<{ roll: string }>();
@@ -20,7 +20,7 @@ const Page: React.FC = () => {
       )}
     </div>): (<div>
       {chapter !== undefined ? (
-        <QuestionPage question={question} subject={subject} chapter={chapter} />
+        <Shorts question={question} subject={subject} chapter={chapter} />
       ) : (
         <p>No question number provided.</p>
       )}

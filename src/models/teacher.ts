@@ -1,38 +1,43 @@
 import mongoose from "mongoose";
 
-const userSchema = new mongoose.Schema({
-  name: {
+// Teacher schema
+const teacherSchema = new mongoose.Schema({
+  teacherName: {
     type: String,
-    required: [true, "Please provide name"],
+    required: [true, "Please provide teacher name"],
+  },
+  subjects: {
+    type: String,
+    required: [true, "Please provide subjects taught"],
+  },
+  schoolName: {
+    type: String,
+    required: [true, "Please provide school name"],
+  },
+  schoolCode: {
+    type: String,
+    required: [true, "Please provide school code"],
   },
   email: {
     type: String,
     required: [true, "Please provide email"],
-    unique: true, // Use email as the unique identifier
+    unique: true, // Ensure email is unique
+  },
+  phone: {
+    type: String,
+    required: [true, "Please provide phone number"],
   },
   password: {
     type: String,
     required: [true, "Please provide password"],
   },
-  description: {
-    type: String,
-    default: "Please provide a brief description about yourself.",
-  },
-  isVerified: {
-    type: Boolean,
-    default: false,
-  },
-  role: {
-    type: String,
-    default: "GENERAL",
-  },
   profilePic: {
     type: String,
-    required: [true, "Please provide profile pic"],
+    required: [true, "Please provide profile picture"],
   },
 }, { timestamps: true });
 
 // Use the existing model or create a new one
-const User = mongoose.models.users || mongoose.model("users", userSchema);
+const Teacher = mongoose.models.Teacher || mongoose.model("Teacher", teacherSchema);
 
-export default User;
+export default Teacher;

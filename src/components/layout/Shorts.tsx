@@ -8,7 +8,7 @@ interface QuestionCardProps {
   chapter: string;
 }
 
-const QuestionPage: React.FC<QuestionCardProps> = ({ subject, chapter, question }) => {
+const Shorts: React.FC<QuestionCardProps> = ({ subject, chapter, question }) => {
   const [videoUrls, setVideoUrls] = useState<string[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
@@ -52,4 +52,4 @@ const QuestionPage: React.FC<QuestionCardProps> = ({ subject, chapter, question 
   );
 };
 
-export default QuestionPage;
+export default Shorts;

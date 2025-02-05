@@ -46,9 +46,6 @@ export const studentUploadVideo = async (
     }
 };
 
-
-
-
 // Function to update a student video
 export const updateVideo = async (videoId: string, updatedData: Partial<Omit<StudentVideo, "id" | "_id">>): Promise<{ message: string; video?: StudentVideo } | { error: string }> => {
   try {
